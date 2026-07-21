@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Thai Körkort AI Rule",
+  "type": "object",
+  "required": [
+    "id",
+    "name_sv",
+    "category",
+    "version"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name_sv": {
+      "type": "string"
+    },
+    "name_th": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}
