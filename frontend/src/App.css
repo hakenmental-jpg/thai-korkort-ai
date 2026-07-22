@@ -1,0 +1,44 @@
+body{
+  margin:0;
+  background:#121212;
+  color:white;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+  width:90%;
+  max-width:900px;
+  margin:auto;
+  padding:30px;
+}
+
+.card{
+  background:#1f1f1f;
+  border-radius:15px;
+  padding:20px;
+  margin:20px 0;
+  border:1px solid #444;
+}
+
+.card h3{
+  color:#4fc3f7;
+}
+
+.card h4{
+  color:#ffeb3b;
+}
+
+.category{
+  display:inline-block;
+  background:#2979ff;
+  padding:5px 10px;
+  border-radius:10px;
+  margin-bottom:10px;
+}.search{
+    width:100%;
+    padding:12px;
+    font-size:18px;
+    border-radius:10px;
+    border:none;
+    margin:20px 0;
+}

@@ -6,11 +6,7 @@
   "description_sv": "Alla trafikanter måste följa trafikreglerna.",
   "description_th": "ผู้ใช้ถนนทุกคนต้องปฏิบัติตามกฎจราจร",
   "legal_reference": "Trafikförordningen",
-  "examples": [
-    "Bilförare",
-    "Cyklist",
-    "Fotgängare"
-  ],
+  "examples": [],
   "exceptions": [],
   "penalty": "",
   "version": "1.0"
