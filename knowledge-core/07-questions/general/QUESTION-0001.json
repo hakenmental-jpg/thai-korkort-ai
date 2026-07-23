@@ -1,0 +1,20 @@
+{
+  "id": "QUESTION-0001",
+  "category": "general",
+  "question_sv": "Vad betyder den röda triangelformade varningsskylten?",
+  "question_th": "ป้ายเตือนรูปสามเหลี่ยมสีแดงหมายถึงอะไร?",
+  "choices": [
+    "ป้ายบังคับ",
+    "ป้ายเตือน",
+    "ป้ายห้าม",
+    "ป้ายข้อมูล"
+  ],
+  "answer": 1,
+  "explanation_th": "ป้ายรูปสามเหลี่ยมขอบสีแดงในสวีเดนใช้เป็นป้ายเตือนอันตราย",
+  "difficulty": "easy",
+  "tags": [
+    "warning",
+    "general"
+  ],
+  "version": "1.0.0"
+}
