@@ -1,9 +1,11 @@
+import Layout from "../components/Layout";
+
 function Quiz() {
   return (
-    <div>
-      <h1>Quiz</h1>
-      <p>ระบบข้อสอบ</p>
-    </div>
+    <Layout>
+      <h1>📝 Quiz</h1>
+      <p>หน้าทำข้อสอบ</p>
+    </Layout>
   );
 }
 

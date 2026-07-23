@@ -1,33 +1,20 @@
-import fs from "fs";
-import path from "path";
+import { loadKnowledgeRepository } from "../repositories/knowledge.repository.js";
 
-const KNOWLEDGE_PATH = path.join(
-  process.cwd(),
-  "..",
-  "knowledge-core",
-  "02-rules",
-  "general"
-);
+export function loadKnowledge(search = "") {
+  const rules = loadKnowledgeRepository();
 
-export function loadKnowledge() {
-  try {
-    const files = fs
-      .readdirSync(KNOWLEDGE_PATH)
-      .filter(file => file.endsWith(".json"));
-
-    const data = files.map(file => {
-      const content = fs.readFileSync(
-        path.join(KNOWLEDGE_PATH, file),
-        "utf8"
-      );
-
-      return JSON.parse(content);
-    });
-
-    return data;
-  } catch (err) {
-    console.error(err);
-
-    return [];
+  if (!search) {
+    return rules;
   }
+
+  const keyword = search.toLowerCase();
+
+  return rules.filter((rule) =>
+    (rule.id || "").toLowerCase().includes(keyword) ||
+    (rule.name_sv || "").toLowerCase().includes(keyword) ||
+    (rule.name_th || "").includes(search) ||
+    (rule.category || "").toLowerCase().includes(keyword) ||
+    (rule.description_sv || "").toLowerCase().includes(keyword) ||
+    (rule.description_th || "").includes(search)
+  );
 }

@@ -6,7 +6,7 @@ import {
   Stack,
 } from "@mui/material";
 
-function RuleCard({ rule }) {
+function RoadSignCard({ sign }) {
   return (
     <Card
       sx={{
@@ -14,8 +14,9 @@ function RuleCard({ rule }) {
         borderRadius: 3,
         background: "#1e293b",
         color: "white",
-        boxShadow: "0 8px 24px rgba(0,0,0,.25)",
         transition: "0.25s",
+        boxShadow: "0 8px 24px rgba(0,0,0,.25)",
+
         "&:hover": {
           transform: "translateY(-4px)",
           boxShadow: "0 12px 30px rgba(37,99,235,.35)",
@@ -28,7 +29,14 @@ function RuleCard({ rule }) {
           fontWeight="bold"
           color="#7dd3fc"
         >
-          {rule.name_sv || rule.id}
+          {sign.code}
+        </Typography>
+
+        <Typography
+          variant="h6"
+          sx={{ mt: 1 }}
+        >
+          🇸🇪 {sign.name_sv}
         </Typography>
 
         <Typography
@@ -38,7 +46,7 @@ function RuleCard({ rule }) {
             mt: 1,
           }}
         >
-          {rule.name_th}
+          🇹🇭 {sign.name_th}
         </Typography>
 
         <Stack
@@ -47,7 +55,7 @@ function RuleCard({ rule }) {
           sx={{ my: 2 }}
         >
           <Chip
-            label={rule.category}
+            label={sign.category}
             color="primary"
             size="small"
           />
@@ -57,27 +65,13 @@ function RuleCard({ rule }) {
           variant="body2"
           sx={{
             color: "#e5e7eb",
-            lineHeight: 1.8,
           }}
         >
-          {rule.description_th}
+          {sign.description_th}
         </Typography>
-
-        {rule.legal_reference && (
-          <Typography
-            variant="caption"
-            sx={{
-              display: "block",
-              mt: 2,
-              color: "#9ca3af",
-            }}
-          >
-            📖 {rule.legal_reference}
-          </Typography>
-        )}
       </CardContent>
     </Card>
   );
 }
 
-export default RuleCard;
+export default RoadSignCard;

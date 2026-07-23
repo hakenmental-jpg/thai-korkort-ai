@@ -1,23 +1,27 @@
+import { Box } from "@mui/material";
+
 import Sidebar from "./Sidebar";
 
 function Layout({ children }) {
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         display: "flex",
+        minHeight: "100vh",
       }}
     >
       <Sidebar />
 
-      <div
-        style={{
-          flex: 1,
-          padding: "30px",
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
         }}
       >
         {children}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

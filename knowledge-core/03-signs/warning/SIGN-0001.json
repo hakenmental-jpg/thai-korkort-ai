@@ -1,0 +1,15 @@
+{
+  "id": "SIGN-0001",
+  "code": "A1",
+  "category": "warning",
+  "name_sv": "Varning för farlig kurva",
+  "name_th": "เตือนโค้งอันตราย",
+  "description_sv": "Vägen har en farlig kurva.",
+  "description_th": "ข้างหน้ามีโค้งอันตราย ผู้ขับขี่ควรลดความเร็วและใช้ความระมัดระวัง",
+  "legal_reference": "Transportstyrelsen",
+  "tags": [
+    "warning",
+    "curve"
+  ],
+  "version": "1.0.0"
+}

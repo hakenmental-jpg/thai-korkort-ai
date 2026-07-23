@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+
+import Layout from "../components/Layout";
 import RuleCard from "../components/RuleCard";
 import { getRules } from "../services/api";
 
@@ -13,29 +15,43 @@ function Knowledge() {
   }, [search]);
 
   return (
-    <div>
-      <h1>📚 Knowledge Base</h1>
+    <Layout>
+      <div className="container">
+        <h1>📚 Knowledge</h1>
 
-      <input
-        type="text"
-        placeholder="ค้นหากฎ..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        style={{
-          width: "100%",
-          padding: "12px",
-          borderRadius: "8px",
-          marginBottom: "20px",
-        }}
-      />
+        <p
+          style={{
+            color: "#888",
+            marginBottom: "20px",
+          }}
+        >
+          คลังความรู้กฎจราจรสวีเดน
+        </p>
 
-      {rules.map((rule) => (
-        <RuleCard
-          key={rule.id}
-          rule={rule}
+        <input
+          className="search"
+          placeholder="ค้นหากฎจราจร..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
-      ))}
-    </div>
+
+        <p
+          style={{
+            margin: "20px 0",
+            color: "#bbb",
+          }}
+        >
+          ทั้งหมด {rules.length} กฎ
+        </p>
+
+        {rules.map((rule) => (
+          <RuleCard
+            key={rule.id}
+            rule={rule}
+          />
+        ))}
+      </div>
+    </Layout>
   );
 }
 

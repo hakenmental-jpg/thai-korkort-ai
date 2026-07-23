@@ -1,61 +1,75 @@
 import { useEffect, useState } from "react";
 
-import RuleCard from "../components/RuleCard";
+import Layout from "../components/Layout";
 import StatsCard from "../components/StatsCard";
 import { getRules } from "../services/api";
 
 function Dashboard() {
   const [rules, setRules] = useState([]);
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    getRules(search)
+    getRules()
       .then((data) => setRules(data.data))
       .catch(console.error);
-  }, [search]);
+  }, []);
 
-  const categories = new Set(rules.map((rule) => rule.category)).size;
+  const categories = new Set(
+    rules.map((rule) => rule.category)
+  ).size;
 
   return (
-    <div className="container">
-      <h1>🚗 THAI-KORKORT-AI</h1>
+    <Layout>
+      <div className="container">
+        <h1>🚗 THAI-KORKORT-AI</h1>
 
-      <p
-        style={{
-          color: "#888",
-          marginBottom: "20px",
-        }}
-      >
-        ระบบเรียนรู้กฎจราจรสวีเดนด้วย AI
-      </p>
+        <p
+          style={{
+            color: "#888",
+            marginBottom: "30px",
+          }}
+        >
+          ระบบเรียนรู้กฎจราจรสวีเดนด้วย AI
+        </p>
 
-      <input
-        className="search"
-        placeholder="ค้นหากฎจราจร..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+        <div
+          style={{
+            display: "flex",
+            gap: "20px",
+            flexWrap: "wrap",
+            marginBottom: "30px",
+          }}
+        >
+          <StatsCard
+            title="Rules"
+            value={rules.length}
+          />
 
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          margin: "25px 0",
-          flexWrap: "wrap",
-        }}
-      >
-        <StatsCard title="Rules" value={rules.length} />
+          <StatsCard
+            title="Categories"
+            value={categories}
+          />
+        </div>
 
-        <StatsCard title="Categories" value={categories} />
+        <div
+          style={{
+            background: "#1e293b",
+            borderRadius: "15px",
+            padding: "25px",
+          }}
+        >
+          <h2>📊 Dashboard</h2>
+
+          <p>จำนวนกฎทั้งหมด : {rules.length}</p>
+
+          <p>หมวดหมู่ : {categories}</p>
+
+          <p>
+            ใช้เมนูด้านซ้ายเพื่อเข้าไปยัง
+            Knowledge, Quiz และ AI Tutor
+          </p>
+        </div>
       </div>
-
-      {rules.map((rule) => (
-        <RuleCard
-          key={rule.id}
-          rule={rule}
-        />
-      ))}
-    </div>
+    </Layout>
   );
 }
 

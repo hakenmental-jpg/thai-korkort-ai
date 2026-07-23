@@ -1,74 +1,60 @@
 import { NavLink } from "react-router-dom";
+import { Box, Typography, Divider } from "@mui/material";
+
+const menuItems = [
+  { text: "Dashboard", icon: "🏠", path: "/" },
+  { text: "Knowledge", icon: "📚", path: "/knowledge" },
+  { text: "Road Signs", icon: "🚧", path: "/roadsigns" },
+  { text: "Quiz", icon: "📝", path: "/quiz" },
+  { text: "AI Tutor", icon: "🤖", path: "/ai" },
+  { text: "Favorites", icon: "⭐", path: "/favorites" },
+  { text: "Settings", icon: "⚙", path: "/settings" },
+];
 
 function Sidebar() {
-  const menuStyle = {
-    display: "block",
-    color: "white",
-    textDecoration: "none",
-    padding: "10px 12px",
-    marginBottom: "6px",
-    borderRadius: "8px",
-    transition: "0.2s",
-  };
-
   return (
-    <div
-      style={{
-        width: "220px",
-        background: "#111827",
+    <Box
+      sx={{
+        width: 230,
+        bgcolor: "#111827",
         color: "white",
         minHeight: "100vh",
-        padding: "20px",
+        p: 2,
       }}
     >
-      <h2>🚗 THAI-KORKORT-AI</h2>
-
-      <hr />
-
-      <NavLink
-        to="/"
-        style={({ isActive }) => ({
-          ...menuStyle,
-          background: isActive ? "#2563eb" : "transparent",
-        })}
+      <Typography
+        variant="h6"
+        sx={{
+          fontWeight: "bold",
+          textAlign: "center",
+          mb: 2,
+        }}
       >
-        🏠 Dashboard
-      </NavLink>
+        🚗 THAI-KORKORT-AI
+      </Typography>
 
-      <NavLink
-        to="/knowledge"
-        style={({ isActive }) => ({
-          ...menuStyle,
-          background: isActive ? "#2563eb" : "transparent",
-        })}
-      >
-        📚 Knowledge
-      </NavLink>
+      <Divider sx={{ bgcolor: "#374151", mb: 2 }} />
 
-      <NavLink
-        to="/roadsigns"
-        style={({ isActive }) => ({
-          ...menuStyle,
-          background: isActive ? "#2563eb" : "transparent",
-        })}
-      >
-        🚧 Road Signs
-      </NavLink>
-
-      <NavLink
-        to="/quiz"
-        style={({ isActive }) => ({
-          ...menuStyle,
-          background: isActive ? "#2563eb" : "transparent",
-        })}
-      >
-        📝 Quiz
-      </NavLink>
-
-      <a style={menuStyle}>🤖 AI Tutor</a>
-      <a style={menuStyle}>⭐ Favorites</a>
-      <a style={menuStyle}>⚙ Settings</a>
-    </div>
+      {menuItems.map((item) => (
+        <NavLink
+          key={item.path}
+          to={item.path}
+          style={({ isActive }) => ({
+            display: "block",
+            padding: "12px 14px",
+            marginBottom: "8px",
+            borderRadius: "10px",
+            textDecoration: "none",
+            color: "white",
+            background: isActive ? "#2563eb" : "transparent",
+            transition: "0.2s",
+            fontWeight: isActive ? "bold" : "normal",
+          })}
+        >
+          {item.icon} {item.text}
+        </NavLink>
+      ))}
+    </Box>
   );
 }
 
